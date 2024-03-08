@@ -14,17 +14,11 @@ app.use(express.urlencoded());
 
 class SorteadorModel {
     constructor() {
-        this.history = [1, 2];
+        this.history = [];
     }
 
     add_history(num) {
         this.history.push(num);
-    }
-
-    random_num(min, max) {
-        min = parseInt(min);
-        max = parseInt(max);
-        return Math.floor(Math.random() * (max - min + 1) + min);
     }
 
     get_history() {
@@ -55,7 +49,9 @@ class SorteadorController {
     }
 
     random_num(min, max) {
-        return this.model.random_num(min, max);
+        min = parseInt(min);
+        max = parseInt(max);
+        return Math.floor(Math.random() * (max - min + 1) + min);
     }
 
 }
